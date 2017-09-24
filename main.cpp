@@ -1,8 +1,8 @@
 #include <iostream>
 #include <stdio.h>
-#include <vector>
-#include <algorithm>
-#include <string.h>
+//#include <vector>
+//#include <algorithm>
+//#include <string.h>
 using namespace std;
 
 //(SCHED_FIFO correspondendo a 1 e SCHED_RR, a 2)
