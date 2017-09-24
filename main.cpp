@@ -24,7 +24,7 @@ int main()
   cin >> si;
   cin >> pi;
   cout << endl;
-
+  cout << endl;
   cout << "N# tarefas:" << n <<"tempo computação: " <<ci <<"tempo chegada:" << si <<"prioridade:" << pi;
   cout << endl;
 
