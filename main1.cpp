@@ -54,30 +54,58 @@ int main() {
         if (esperando[i].s == tempo) {
           executando.push_back(esperando[i]);
           esperando.erase(esperando.begin()+i);
+          //num_tarefas--;
           i--;
         }
       }
 
+    while (esperando.size() > 0)
+    {
+
+      for(i=0; i<num_tarefas; i++)
+        {
+          if (esperando[i].s == tempo) {
+            executando.push_back(esperando[i]);
+            esperando.erase(esperando.begin()+i);
+            //num_tarefas--;
+            i--;
+          }
+        }
+
+    if(executando.size() == 0)
+    {
+      grade[tempo++] = '.';
+      //tempo++;
+    }
+
     while(executando.size() > 0)
     {
-    grade[tempo++] = tarefas[i].id;
+    x=0;
+    grade[tempo++] = executando[x].id;
+    executando[x].c = executando[x].c-1;
 
-    cout << endl;
-    x = executando.size();
-    for(i=0; i<x; i++)
+    if(executando[x].c == 0)
     {
-      cout << executando[i].id << endl;
+      executando.erase(executando.begin()+x);
     }
 
-    for (i = 0; i < executando.size(); i++) {
+    if(executando[x].sched == 2)
+    {
+      executando.push_back(executando[x]);
+    }
 
-      for (j = i+1; j < executando.size(); j++) {
-          executando[i].p < executando[j].p;
+    for(i=0; i<num_tarefas; i++)
+      {
+        if(esperando[i].s == tempo) {
+          executando.push_back(esperando[i]);
+          esperando.erase(esperando.begin()+i);
+          //num_tarefas--;
+          i--;
+        }
       }
+      tempo++;
     }
 
-
-    }
 		/* provisorio... */
 		//tempo = 0;
 		//for (i=0;i<num_tarefas;++i)
@@ -89,7 +117,7 @@ int main() {
 		printf("Grade [%u]: ",tempo);
 #endif
 		printf("%s\n\n",grade);
-
+  }
 		/* Inicia nova leitura... */
 		scanf("%u",&num_tarefas);
 	}
