@@ -3,7 +3,7 @@ using namespace std;
 
 class Tarefa
 {
-
+private:
   int id;
   int ci; //tempo de computação da tarefa (Ci)
   int si; //tempo de chegada da tarefa (Si)
@@ -12,16 +12,17 @@ class Tarefa
 
 public:
 
+  Tarefa();
   void inicializa(int id, int ci, int si, int pi, int po);
   int get_id();
   int get_tempocomp();
   int get_chegada();
   int get_prioridade();
   int get_politica();
-  void set_id(int id);
-  void set_tempocomp(int ci);
-  void set_chegada(int si);
-  void set_prioridade(int pi);
-  void set_politica(int po);
+  void set_id(int idd);
+  void set_tempocomp(int cii);
+  void set_chegada(int sii);
+  void set_prioridade(int pii);
+  void set_politica(int poo);
   void imprime();
 };

@@ -12,6 +12,9 @@ using namespace std;
 //respectivamente a: tempo de computação da tarefa (Ci), tempo de chegada da tarefa (Si) e prioridade
 //(pi) da tarefa
 
+Tarefa::Tarefa(): id(0),ci(0),pi(0),po(0),si(0){
+}
+
 void Tarefa::inicializa(int id, int ci, int si, int pi, int po)
 {
   id = id;
@@ -46,29 +49,29 @@ int Tarefa::get_politica()
   return po;
 }
 
-void Tarefa::set_id(int id)
+void Tarefa::set_id(int idd)
 {
-  id = id;
+  id = idd;
 }
 
-void Tarefa::set_tempocomp(int ci)
+void Tarefa::set_tempocomp(int cii)
 {
-  ci = ci;
+  ci = cii;
 }
 
-void Tarefa::set_chegada(int si)
+void Tarefa::set_chegada(int sii)
 {
-  si = si;
+  si = sii;
 }
 
-void Tarefa::set_prioridade(int pi)
+void Tarefa::set_prioridade(int pii)
 {
-  pi = pi;
+  pi = pii;
 }
 
-void Tarefa::set_politica(int po)
+void Tarefa::set_politica(int poo)
 {
-  po = po;
+  po = poo;
 }
 
 void Tarefa::imprime()
@@ -91,41 +94,64 @@ int main()
   int po=0; // politica (po)
   int aux=0,i=0;
 //##############################################################
-std::list<int> tarefas;   // cria uma lista de pronto
-std::list<int>::iterator t;  // cria um iterador
-std::list<int> pronto;   // cria uma lista de pronto
-std::list<int>::iterator p;  // cria um iterador
+std::list<Tarefa> tarefas;   // cria uma lista de tarefas
+std::list<Tarefa>::iterator t;  // cria um iterador
+std::list<Tarefa *> tarefasptr;   // cria uma lista de pronto
+std::list<Tarefa *>::iterator p;  // cria um iterador
+
 
   cin >> n;
   cout << endl;
 
 Tarefa teste[n];
+Tarefa tar;
+
+
+//#############################################################
+//#########  CRIA AS TAREFAS ##################################
 
 for(aux=0;aux < n;aux++)
 {
-  teste[aux].inicializa(id,ci,si,pi,po);
-  teste[aux].imprime();
-}
+  // cin >> ci;
+  // teste[aux].set_tempocomp(ci);
+  // cin >> si;
+  // teste[aux].set_chegada(si);
+  // cin >> pi;
+  // teste[aux].set_prioridade(pi);
+  // cin >> po;
+  // teste[aux].set_politica(po);
+  // teste[aux].set_id(i);
 
-for(aux=0;aux < n;aux++)
-{
-  cin >> ci;
-  teste[aux].set_tempocomp(ci);
-  cin >> si;
-  teste[aux].set_chegada(si);
-  cin >> pi;
-  teste[aux].set_prioridade(pi);
-  cin >> po;
-  teste[aux].set_politica(po);
-  teste[aux].set_id(i);
+ // cin >> ci >> si >> pi >> po;
+ tar.set_tempocomp(ci);
+ // cin >> si;
+ tar.set_chegada(si);
+ // cin >> pi;
+ tar.set_prioridade(pi);
+ // cin >> po;
+ tar.set_politica(po);
+ tar.set_id(i);
+
+  cout << "antes" << endl;
+  tarefas.push_back(tar);
+  cout << "depois" << endl;
+  cout << "size" << tarefas.size() << endl;
+
   i++;
-
+  p++;
   cout << endl;
 }
-for(aux=0;aux < n;aux++)
-{
-    teste[aux].imprime();
-}
+//#############################################################
+cout << "depois do for" << endl;
 
+
+//#############################################################
+//########### IMPRIME #########################################
+// for(aux=0;aux < n;aux++)
+// {
+//     teste[aux].imprime();
+// }
+//#############################################################
+//#############################################################
   return 0;
 }
